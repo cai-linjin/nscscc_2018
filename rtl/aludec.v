@@ -19,23 +19,35 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
+`include "defines.h"
 module aludec(
 	input wire[5:0] funct,
-	input wire[1:0] aluop,
-	output reg[2:0] alucontrol
+	input wire[3:0] aluop,
+	output reg[4:0] alucontrol
     );
 	always @(*) begin
 		case (aluop)
-			2'b00: alucontrol <= 3'b010;//add (for lw/sw/addi)
-			2'b01: alucontrol <= 3'b110;//sub (for beq)
+			`ANDI_OP: alucontrol <= `AND_CONTROL;
+			`XORI_OP: alucontrol <= `XOR_CONTROL;
+			`LUI_OP:  alucontrol <= `LUI_CONTROL;
+			`ORI:     alucontrol <= `OR_CONTROL;
+			
+			`ADDI_OP: alucontrol <= `ADD_CONTROL;
+			`ADDIU_OP:alucontrol <= `ADDU_CONTROL;
+			`SLTI_OP: alucontrol <= `SLT_CONTROL;
+			`SLTIU_OP:alucontrol <= `SLTU_CONTROL;
 			default : case (funct)
-				6'b100000:alucontrol <= 3'b010; //add
-				6'b100010:alucontrol <= 3'b110; //sub
-				6'b100100:alucontrol <= 3'b000; //and
-				6'b100101:alucontrol <= 3'b001; //or
-				6'b101010:alucontrol <= 3'b111; //slt
-				default:  alucontrol <= 3'b000;
+				`AND:  alucontrol <= `AND_CONTROL; //and
+				`OR:   alucontrol <= `OR_CONTROL;  //or
+				`XOR:  alucontrol <= `XOR_CONTROL; //xor
+				`NOR:  alucontrol <= `NOR_CONTROL; //nor
+				`ADD:  alucontrol <= `ADD_CONTROL; //add
+				`ADDU: alucontrol <= `ADDU_CONTROL;//addu
+				`SUB:  alucontrol <= `SUB_CONTROL; //sub
+				`SUBU: alucontrol <= `SUBU_CONTROL;//subu
+				`SLT:  alucontrol <= `SLT_CONTROL; //slt
+				`SLTU: alucontrol <= `SLTU_CONTROL;//sltu
+				default:  alucontrol <= 5'b0000;
 			endcase
 		endcase
 	

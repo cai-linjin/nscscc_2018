@@ -19,36 +19,37 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
+`include "defines.h"
 module alu(
 	input wire[31:0] a,b,
-	input wire[2:0] op,
+	input wire[4:0] alucontrol,
 	output reg[31:0] y,
 	output reg overflow,
-	output wire zero
+	output reg zero
     );
-
-	wire[31:0] s,bout;
-	assign bout = op[2] ? ~b : b;
-	assign s = a + bout + op[2];
+	
+	assign zero = (y == 32'b0);
 	always @(*) begin
-		case (op[1:0])
-			2'b00: y <= a & bout;
-			2'b01: y <= a | bout;
-			2'b10: y <= s;
-			2'b11: y <= s[31];
+		case (alucontrol)
+			`AND_CONTROL:  y <= a & b;
+			`OR_CONTROL:   y <= a | b;
+			`XOR_CONTROL:  y <= a ^ b;
+			`NOR_CONTROL:  y <= ~(a | b);
+
+			`ADD_CONTROL, `ADDU_CONTROL: y <= a + b;
+			`SUB_CONTROL, `SUBU_CONTROL: y <= a - b;
+			`SLT_CONTROL:  y <= (a<b)? 1 : 0;
+			`SLTU_CONTROL: y <= ({1'b0,a}<{1'b0,b})? 1 : 0;
+			`LUI_CONTROL:  y <= {b[15:0], 16'b0};
 			default : y <= 32'b0;
 		endcase	
 	end
-	assign zero = (y == 32'b0);
 
 	always @(*) begin
-		case (op[2:1])
-			2'b01:overflow <= a[31] & b[31] & ~s[31] |
-							~a[31] & ~b[31] & s[31];
-			2'b11:overflow <= ~a[31] & b[31] & s[31] |
-							a[31] & ~b[31] & ~s[31];
-			default : overflow <= 1'b0;
-		endcase	
+		case (alucontrol)
+			`ADD_CONTROL, `SUB_CONTROL: overflow <= a[31] & b[31] & ~y[31] | ~a[31] & ~b[31] & y[31];
+			`ADDU_CONTROL:overflow <= 0;
+			`SUBU_CONTROL:overflow <= 0;
+			default: overflow <= 0;
 	end
 endmodule

@@ -41,7 +41,7 @@ module controller(
     );
 	
 	//decode stage
-	wire[1:0] aluopD;
+	wire[3:0] aluopD;
 	wire memtoregD,memwriteD,alusrcD,
 		regdstD,regwriteD;
 	wire[2:0] alucontrolD;

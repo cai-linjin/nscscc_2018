@@ -19,13 +19,14 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+
 `include "defines.h"
 module alu(
 	input wire[31:0] a,b,
 	input wire[4:0] alucontrol,
 	output reg[31:0] y,
 	output reg overflow,
-	output reg zero
+	output wire zero
     );
 	
 	assign zero = (y == 32'b0);
@@ -51,5 +52,6 @@ module alu(
 			`ADDU_CONTROL:overflow <= 0;
 			`SUBU_CONTROL:overflow <= 0;
 			default: overflow <= 0;
+        endcase
 	end
 endmodule

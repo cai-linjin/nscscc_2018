@@ -18,19 +18,21 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
+`include "defines.h"
 
 module controller(
 	input wire clk,rst,
 	//decode stage
-	input wire[5:0] opD,functD,
-	output wire pcsrcD,branchD,equalD,jumpD,
+	input wire[31:0] instrD,
+	input equalD,
+	output wire pcsrcD,branchD,jumpD,
+	output wire jalD,jrD,balD,jalrD,memen,
 	
 	//execute stage
 	input wire flushE,
 	output wire memtoregE,alusrcE,
 	output wire regdstE,regwriteE,	
-	output wire[2:0] alucontrolE,
+	output wire[4:0] alucontrolE,
 
 	//mem stage
 	output wire memtoregM,memwriteM,
@@ -44,18 +46,23 @@ module controller(
 	wire[3:0] aluopD;
 	wire memtoregD,memwriteD,alusrcD,
 		regdstD,regwriteD;
-	wire[2:0] alucontrolD;
+	wire[4:0] alucontrolD;
 
 	//execute stage
 	wire memwriteE;
 
 	maindec md(
-		opD,
+		instrD,
 		memtoregD,memwriteD,
 		branchD,alusrcD,
 		regdstD,regwriteD,
 		jumpD,
-		aluopD
+		aluopD,
+		jalD,
+		jrD,
+		balD,
+		jalrD,
+		memen
 		);
 	aludec ad(functD,aluopD,alucontrolD);
 

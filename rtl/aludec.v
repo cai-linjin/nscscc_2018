@@ -27,16 +27,10 @@ module aludec(
     );
 	always @(*) begin
 		case (aluop)
-			`ANDI_OP: alucontrol <= `AND_CONTROL;
-			`XORI_OP: alucontrol <= `XOR_CONTROL;
-			`LUI_OP:  alucontrol <= `LUI_CONTROL;
-			`ORI:     alucontrol <= `OR_CONTROL;
-			
-			`ADDI_OP: alucontrol <= `ADD_CONTROL;
-			`ADDIU_OP:alucontrol <= `ADDU_CONTROL;
-			`SLTI_OP: alucontrol <= `SLT_CONTROL;
-			`SLTIU_OP:alucontrol <= `SLTU_CONTROL;
-			default : case (funct)
+			`R_TYPE_OP:
+			case(funct)
+				`SLL:alucontrol <= `SLL_CONTROL; 
+
 				`AND:  alucontrol <= `AND_CONTROL; //and
 				`OR:   alucontrol <= `OR_CONTROL;  //or
 				`XOR:  alucontrol <= `XOR_CONTROL; //xor
@@ -47,9 +41,19 @@ module aludec(
 				`SUBU: alucontrol <= `SUBU_CONTROL;//subu
 				`SLT:  alucontrol <= `SLT_CONTROL; //slt
 				`SLTU: alucontrol <= `SLTU_CONTROL;//sltu
-				default:  alucontrol <= 5'b0000;
+				default:  alucontrol <= 5'b00000;
 			endcase
+		case(aluop)
+			`ANDI_OP: alucontrol <= `AND_CONTROL;
+			`XORI_OP: alucontrol <= `XOR_CONTROL;
+			`LUI_OP:  alucontrol <= `LUI_CONTROL;
+			`ORI:     alucontrol <= `OR_CONTROL;
+			
+			`ADDI_OP: alucontrol <= `ADD_CONTROL;
+			`ADDIU_OP:alucontrol <= `ADDU_CONTROL;
+			`SLTI_OP: alucontrol <= `SLT_CONTROL;
+			`SLTIU_OP:alucontrol <= `SLTU_CONTROL;
+		default:alucontrol<=5'b00000;	
 		endcase
-	
 	end
 endmodule

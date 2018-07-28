@@ -24,15 +24,15 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.cache/wt [current_project]
-set_property parent.project_path C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.cache/wt [current_project]
+set_property parent.project_path C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.cache/ip [current_project]
+set_property ip_output_repo c:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_ip -quiet C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem.xci
-set_property used_in_implementation false [get_files -all c:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_ooc.xdc]
+read_ip -quiet C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem.xci
+set_property used_in_implementation false [get_files -all c:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -44,10 +44,12 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 }
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
+set_param ips.enableIPCacheLiteLoad 0
 
-set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.runs/inst_mem_synth_1 -new_name inst_mem -ip [get_ips inst_mem]]
+set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.runs/inst_mem_synth_1 -new_name inst_mem -ip [get_ips inst_mem]]
 
 if { $cached_ip eq {} } {
+close [open __synthesis_is_running__ w]
 
 synth_design -top inst_mem -part xc7a100tfgg484-1 -mode out_of_context
 
@@ -84,32 +86,32 @@ write_checkpoint -force -noxdef inst_mem.dcp
 create_report "inst_mem_synth_1_synth_report_utilization_0" "report_utilization -file inst_mem_utilization_synth.rpt -pb inst_mem_utilization_synth.pb"
 
 if { [catch {
-  file copy -force C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.runs/inst_mem_synth_1/inst_mem.dcp C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem.dcp
+  file copy -force C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.runs/inst_mem_synth_1/inst_mem.dcp C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_stub.v
+  write_verilog -force -mode synth_stub C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_stub.vhdl
+  write_vhdl -force -mode synth_stub C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_sim_netlist.v
+  write_verilog -force -mode funcsim C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -119,46 +121,48 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.runs/inst_mem_synth_1/inst_mem.dcp C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem.dcp
+  file copy -force C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.runs/inst_mem_synth_1/inst_mem.dcp C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.runs/inst_mem_synth_1/inst_mem_stub.v C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_stub.v
+  file rename -force C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.runs/inst_mem_synth_1/inst_mem_stub.v C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.runs/inst_mem_synth_1/inst_mem_stub.vhdl C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_stub.vhdl
+  file rename -force C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.runs/inst_mem_synth_1/inst_mem_stub.vhdl C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.runs/inst_mem_synth_1/inst_mem_sim_netlist.v C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_sim_netlist.v
+  file rename -force C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.runs/inst_mem_synth_1/inst_mem_sim_netlist.v C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.runs/inst_mem_synth_1/inst_mem_sim_netlist.vhdl C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_sim_netlist.vhdl
+  file rename -force C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.runs/inst_mem_synth_1/inst_mem_sim_netlist.vhdl C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 }; # end if cached_ip 
 
-if {[file isdir C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.ip_user_files/ip/inst_mem]} {
+if {[file isdir C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.ip_user_files/ip/inst_mem]} {
   catch { 
-    file copy -force C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_stub.v C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.ip_user_files/ip/inst_mem
+    file copy -force C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_stub.v C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.ip_user_files/ip/inst_mem
   }
 }
 
-if {[file isdir C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.ip_user_files/ip/inst_mem]} {
+if {[file isdir C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.ip_user_files/ip/inst_mem]} {
   catch { 
-    file copy -force C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_stub.vhdl C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.ip_user_files/ip/inst_mem
+    file copy -force C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_stub.vhdl C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.ip_user_files/ip/inst_mem
   }
 }
+file delete __synthesis_is_running__
+close [open __synthesis_is_complete__ w]

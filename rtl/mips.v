@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
+`include "defines.h"
 
 module mips(
 	input wire clk,rst,
@@ -30,16 +30,18 @@ module mips(
     );
 	
 	wire [5:0] opD,functD;
+	wire [31:0] instrD;
 	wire regdstE,alusrcE,pcsrcD,memtoregE,memtoregM,memtoregW,
 			regwriteE,regwriteM,regwriteW;
-	wire [2:0] alucontrolE;
+	wire [4:0] alucontrolE;
 	wire flushE,equalD;
 
 	controller c(
 		clk,rst,
 		//decode stage
-		opD,functD,
-		pcsrcD,branchD,equalD,jumpD,
+		instrD,equalD,
+		pcsrcD,branchD,jumpD,
+		jalD,jrD,balD,jalrD,memen,
 		
 		//execute stage
 		flushE,
@@ -60,9 +62,9 @@ module mips(
 		instrF,
 		//decode stage
 		pcsrcD,branchD,
-		jumpD,
+		jumpD,jalD,jrD,balD,jalrD,
 		equalD,
-		opD,functD,
+		opD,functD,instrD,
 		//execute stage
 		memtoregE,
 		alusrcE,regdstE,

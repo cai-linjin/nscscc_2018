@@ -69,19 +69,19 @@ module controller(
 	assign pcsrcD = branchD & equalD;
 
 	//pipeline registers
-	floprc #(8) regE(
+	floprc #(10) regE(//MODEFIED
 		clk,
 		rst,
 		flushE,
 		{memtoregD,memwriteD,alusrcD,regdstD,regwriteD,alucontrolD},
 		{memtoregE,memwriteE,alusrcE,regdstE,regwriteE,alucontrolE}
 		);
-	flopr #(8) regM(
+	flopr #(3) regM(
 		clk,rst,
 		{memtoregE,memwriteE,regwriteE},
 		{memtoregM,memwriteM,regwriteM}
 		);
-	flopr #(8) regW(
+	flopr #(2) regW(
 		clk,rst,
 		{memtoregM,regwriteM},
 		{memtoregW,regwriteW}

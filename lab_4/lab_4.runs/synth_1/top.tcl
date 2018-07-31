@@ -22,43 +22,45 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.cache/wt [current_project]
-set_property parent.project_path C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.xpr [current_project]
+set_property webtalk.parent_dir D:/longxin_project/nscscc_2018/lab_4/lab_4.cache/wt [current_project]
+set_property parent.project_path D:/longxin_project/nscscc_2018/lab_4/lab_4.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.cache/ip [current_project]
+set_property ip_output_repo d:/longxin_project/nscscc_2018/lab_4/lab_4.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files C:/Users/╡лаж╫З/nscscc_2018/coe/mipstest.coe
-read_verilog C:/Users/╡лаж╫З/nscscc_2018/rtl/defines.h
-set_property file_type "Verilog Header" [get_files C:/Users/╡лаж╫З/nscscc_2018/rtl/defines.h]
+add_files D:/longxin_project/nscscc_2018/coe/mipstest.coe
+add_files D:/ref_code/ref_code/coe/7.J_Inst_Test/inst_rom.coe
+add_files D:/ref_code/ref_code/coe/1.Ori_Inst_Test/inst_rom.coe
+read_verilog D:/longxin_project/nscscc_2018/rtl/defines.h
+set_property file_type "Verilog Header" [get_files D:/longxin_project/nscscc_2018/rtl/defines.h]
 read_verilog -library xil_defaultlib {
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/adder.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/alu.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/aludec.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/controller.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/datapath.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/eqcmp.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/flopenr.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/flopenrc.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/flopr.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/floprc.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/hazard.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/maindec.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/mips.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/mux2.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/mux3.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/pc.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/regfile.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/signext.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/sl2.v
-  C:/Users/╡лаж╫З/nscscc_2018/rtl/top.v
+  D:/longxin_project/nscscc_2018/rtl/adder.v
+  D:/longxin_project/nscscc_2018/rtl/alu.v
+  D:/longxin_project/nscscc_2018/rtl/aludec.v
+  D:/longxin_project/nscscc_2018/rtl/controller.v
+  D:/longxin_project/nscscc_2018/rtl/datapath.v
+  D:/longxin_project/nscscc_2018/rtl/eqcmp.v
+  D:/longxin_project/nscscc_2018/rtl/flopenr.v
+  D:/longxin_project/nscscc_2018/rtl/flopenrc.v
+  D:/longxin_project/nscscc_2018/rtl/flopr.v
+  D:/longxin_project/nscscc_2018/rtl/floprc.v
+  D:/longxin_project/nscscc_2018/rtl/hazard.v
+  D:/longxin_project/nscscc_2018/rtl/maindec.v
+  D:/longxin_project/nscscc_2018/rtl/mips.v
+  D:/longxin_project/nscscc_2018/rtl/mux2.v
+  D:/longxin_project/nscscc_2018/rtl/mux3.v
+  D:/longxin_project/nscscc_2018/rtl/pc.v
+  D:/longxin_project/nscscc_2018/rtl/regfile.v
+  D:/longxin_project/nscscc_2018/rtl/signext.v
+  D:/longxin_project/nscscc_2018/rtl/sl2.v
+  D:/longxin_project/nscscc_2018/rtl/top.v
 }
-read_ip -quiet C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem.xci
-set_property used_in_implementation false [get_files -all c:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_ooc.xdc]
+read_ip -quiet D:/longxin_project/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem.xci
+set_property used_in_implementation false [get_files -all d:/longxin_project/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/inst_mem/inst_mem_ooc.xdc]
 
-read_ip -quiet C:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/data_mem/data_mem.xci
-set_property used_in_implementation false [get_files -all c:/Users/╡лаж╫З/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/data_mem/data_mem_ooc.xdc]
+read_ip -quiet D:/longxin_project/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/data_mem/data_mem.xci
+set_property used_in_implementation false [get_files -all d:/longxin_project/nscscc_2018/lab_4/lab_4.srcs/sources_1/ip/data_mem/data_mem_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

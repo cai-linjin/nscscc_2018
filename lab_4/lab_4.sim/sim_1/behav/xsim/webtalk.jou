@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
-# Webtalk v2017.3 (64-bit)
-# SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
-# IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
-# Start of session at: Wed Dec 27 15:42:25 2017
-# Process ID: 9392
-# Current directory: C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.sim/sim_1/behav/xsim/xsim.dir/testbench_behav/webtalk/xsim_webtalk.tcl -notrace
-# Log file: C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.sim/sim_1/behav/xsim/webtalk.log
-# Journal file: C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.sim/sim_1/behav/xsim\webtalk.jou
+# Webtalk v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Mon Jul 30 16:21:10 2018
+# Process ID: 3836
+# Current directory: D:/longxin_project/nscscc_2018/lab_4/lab_4.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source D:/longxin_project/nscscc_2018/lab_4/lab_4.sim/sim_1/behav/xsim/xsim.dir/testbench_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: D:/longxin_project/nscscc_2018/lab_4/lab_4.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: D:/longxin_project/nscscc_2018/lab_4/lab_4.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
-source C:/Users/lvyuf/Desktop/System_skills/Labs/lab4/lab_4/lab_4.sim/sim_1/behav/xsim/xsim.dir/testbench_behav/webtalk/xsim_webtalk.tcl -notrace
+source D:/longxin_project/nscscc_2018/lab_4/lab_4.sim/sim_1/behav/xsim/xsim.dir/testbench_behav/webtalk/xsim_webtalk.tcl -notrace

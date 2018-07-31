@@ -43,17 +43,16 @@ module aludec(
 				`SLTU: alucontrol <= `SLTU_CONTROL;//sltu
 				default:  alucontrol <= 5'b00000;
 			endcase
-		case(aluop)
-			`ANDI_OP: alucontrol <= `AND_CONTROL;
-			`XORI_OP: alucontrol <= `XOR_CONTROL;
-			`LUI_OP:  alucontrol <= `LUI_CONTROL;
-			`ORI:     alucontrol <= `OR_CONTROL;
-			
-			`ADDI_OP: alucontrol <= `ADD_CONTROL;
-			`ADDIU_OP:alucontrol <= `ADDU_CONTROL;
-			`SLTI_OP: alucontrol <= `SLT_CONTROL;
-			`SLTIU_OP:alucontrol <= `SLTU_CONTROL;
-		default:alucontrol<=5'b00000;	
-		endcase
+        `ANDI_OP: alucontrol <= `AND_CONTROL;
+        `XORI_OP: alucontrol <= `ADDU_CONTROL;
+        `SLTI_OP: alucontrol <= `SLT_CONTROL;
+        `SLTIU_OP:alucontrol <= `XOR_CONTROL;
+        `LUI_OP:  alucontrol <= `LUI_CONTROL;
+        `ORI_OP:  alucontrol <= `OR_CONTROL;
+        
+        `ADDI_OP: alucontrol <= `ADD_CONTROL;
+        `ADDIU_OP:alucontrol <= `SLTU_CONTROL;
+        default:  alucontrol<=5'b00000;	
+        endcase
 	end
 endmodule

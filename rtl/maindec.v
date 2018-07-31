@@ -43,7 +43,7 @@ module maindec(
 	always @(*) begin
 		case (op)
 			`R_TYPE:case (funct)
-				`JR:controls<=16'b0_0_0_0_0_0_0_0_1_0_0_1111_0;
+				`JR:  controls<=16'b0_0_0_0_0_0_0_0_1_0_0_1111_0;
 				`JALR:controls<=16'b1_0_0_0_0_0_0_0_0_0_1_1111_0;
 				default:controls<=16'b0_0_0_0_0_0_0_0_0_0_0_1000_0;//change
 				endcase

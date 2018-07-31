@@ -154,7 +154,7 @@ module datapath(
 	mux2 #(32) srcbmux(srcb2E,signimmE,alusrcE,srcb3E);
 	alu alu(srca2E,srcb3E,alucontrolE,aluoutE);
 	mux2 #(5) wr1mux(rtE,rdE,regdstE|jalrD,writereg1E);
-	mux2 #(5) wr2mux(writereg1E,5'b11111,bal,writereg2E);
+	mux2 #(5) wr2mux(writereg1E,5'b11111,balE,writereg2E);  //bal is not declared
 
 
 	//mem stage
